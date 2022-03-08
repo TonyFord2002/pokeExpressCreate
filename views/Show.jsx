@@ -5,7 +5,7 @@ const React = require('react')
       render() {
         const { pokemon } = this.props
         const pokename = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-          if(pokemon.name == 'bulbasaur' || pokemon.name == 'ivysaur' || pokemon.name == 'venusaur'){
+        if(pokemon.name == 'bulbasaur' || pokemon.name == 'ivysaur' || pokemon.name == 'venusaur'){
           return (
             <html lang="en">
             <head>
@@ -24,7 +24,7 @@ const React = require('react')
                       </div>
                     </body>
             </html>
-                   )}else if(pokemon.name == 'charmander' || pokemon.name == 'charizard'){
+                   )}else if(pokemon.name == 'charmander' || pokemon.name == 'charizard' || pokemon.name == 'charmeleon'){
                        return(
                     <body style = {{backgroundColor: 'sandybrown'}}>
                       <div>
@@ -35,7 +35,7 @@ const React = require('react')
                         <a style = {{color: 'red'}} href = '/pokemon'>Back to list</a>
                       </div>
                     </body>
-                     )}else if(pokemon.name == 'squirtle' || pokemon.name =='wartortle'){
+                     )}else if(pokemon.name == 'squirtle' || pokemon.name =='wartortle' || pokemon.name =='blastoise'){
                          return(
                     <body style = {{backgroundColor: 'cornflowerblue'}}>
                       <div>
