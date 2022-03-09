@@ -1,16 +1,31 @@
 require('dotenv').config()
 const express = require('express')
 const Pokemon = require('./models/pokemon')
-const app = express()
 const mongoose = require('mongoose')
+const app = express()
 const port=3000
-app.use(express.urlencoded({extended:false}))
+
+app.use(express.urlencoded({extended:true}))
 
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
+app.get('/pokemon/seed', (req, res)=>{
+    Pokemon.create([       
+     {name: "bulbasaur", img: "http://img.pokemondb.net/artwork/bulbasaur"},
+     {name: "ivysaur", img: "http://img.pokemondb.net/artwork/ivysaur"},
+     {name: "venusaur", img: "http://img.pokemondb.net/artwork/venusaur"},
+     {name: "charmander", img: "http://img.pokemondb.net/artwork/charmander"},
+     {name: "charizard", img: "http://img.pokemondb.net/artwork/charizard"},
+     {name: "squirtle", img: "http://img.pokemondb.net/artwork/squirtle"},
+     {name: "wartortle", img: "http://img.pokemondb.net/artwork/wartortle"}
+    ], (err, data)=>{
+        res.redirect('/pokemon')
+    })
+})
+
 app.get('/pokemon', (req, res)=>{
-    Pokemon.find({}, (error, allPokemon)=>{
+    Pokemon.find({}, (err, allPokemon)=>{
         res.render('Index', {pokemon: allPokemon})
     })
 })
@@ -25,7 +40,7 @@ app.get('/pokemon/:id', (req, res)=>{
 })
 
 app.post('/pokemon', (req,res)=>{
-    Pokemon.create(req.body, (error, createdFruit)=>{
+    Pokemon.create(req.body, (err, createdPokemon)=>{
        res.redirect('/pokemon')//send user back to index page
 })
 })

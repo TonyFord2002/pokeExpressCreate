@@ -11,7 +11,7 @@ const React = require('react');
     <meta charSet="UTF-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>All Pokemon</title>
 </head>
               <body style={{backgroundColor: 'gold'}}>
                     <div>

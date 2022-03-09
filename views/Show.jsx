@@ -46,6 +46,17 @@ const React = require('react')
                         <a style = {{color: 'darkblue'}} href = '/pokemon'>Back to list</a>
                       </div>
                     </body>)
+                     }else{
+                      return(
+                        <body style = {{backgroundColor: 'gold'}}>
+                          <div>
+                            <h1><img style = {{height:'185px'}}src = 'https://i0.wp.com/twobeardgaming.com/wp-content/uploads/2020/05/pokemon-gotta.png?fit=1200400&ssl=1'></img></h1>
+                            <h2 style = {{color: 'blue'}}>{pokename}</h2>
+                            <img src = {`${pokemon.img}.jpg`}></img>
+                            <br></br>
+                            <a style = {{color: 'darkblue'}} href = '/pokemon'>Back to list</a>
+                          </div>
+                        </body>)
                      }
                 }
             }

@@ -11,7 +11,6 @@ class New extends React.Component {
           Link to Picture: <input type="text" name="img" /><br/>
           <input type="submit" name="" value="Create Pokemon"/>
         </form>
-        
         </div>
   )
 }
