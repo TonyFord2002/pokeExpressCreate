@@ -27,13 +27,8 @@ const React = require('react');
                                       <div><a style = {{color:'#FF0000', fontSize: '30px'}} href={`/pokemon/${poke.id}`}>
                                           {pokename}
                                       </a>{' '}</div>
-                                        <div style={{display:'inline-flex'}}><form action={`/pokemon/${poke._id}?_method=DELETE`} method="POST">
-                                        <input style={{backgroundColor:'red', color:'white',borderRadius:'20px'}} type="submit" value="Delete"/>
-                                        </form>
-                                        <form action={`/pokemon/${poke._id}/edit?_method=EDIT`} method="PUT">
-                                        <input style={{backgroundColor:'blue', color:'white', borderRadius:'20px'}} type="submit" value="Edit"/>
-                                        </form></div>
-                                     <br/> <br />
+                                       
+                                     <br/>
                                   </li>
                               )
                           })}

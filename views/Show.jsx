@@ -19,10 +19,15 @@ const React = require('react')
                         <h1><img style = {{height:'185px'}}src = 'https://i0.wp.com/twobeardgaming.com/wp-content/uploads/2020/05/pokemon-gotta.png?fit=1200400&ssl=1'></img></h1>
                         <h2 style = {{color: 'green'}}>{pokename}</h2>
                         <img src = {`${pokemon.img}.jpg`}></img>
-                        <br></br>
-                        <a style = {{color: 'darkgreen'}} href = '/pokemon'>Back to list</a>
+                        <br></br><div style={{display:'inline-flex'}}><form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+                        <input style={{backgroundColor:'red', color:'white',borderRadius:'20px'}} type="submit" value="Delete"/>
+                        </form>
+                        <form action={`/pokemon/${pokemon._id}/edit?_method=EDIT`} method="PUT">
+                        <input style={{backgroundColor:'blue', color:'white', borderRadius:'20px'}} type="submit" value="Edit"/>
+                        </form></div>
+                        <button style = {{backgroundColor:'green', color: 'white', borderRadius: '20px'}}><a style ={{color:'white'}} href = '/pokemon'>Back to list</a></button>
                       </div>
-                    </body>
+                      </body>
             </html>
                    )}else if(pokemon.name == 'charmander' || pokemon.name == 'charizard' || pokemon.name == 'charmeleon'){
                        return(
@@ -32,7 +37,13 @@ const React = require('react')
                         <h2 style = {{color: 'red'}}>{pokename}</h2>
                         <img src = {`${pokemon.img}.jpg`}></img>
                         <br></br>
-                        <a style = {{color: 'red'}} href = '/pokemon'>Back to list</a>
+                        <div style={{display:'inline-flex'}}><form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+                        <input style={{backgroundColor:'red', color:'white',borderRadius:'20px'}} type="submit" value="Delete"/>
+                        </form>
+                        <form action={`/pokemon/${pokemon._id}/edit?_method=EDIT`} method="PUT">
+                        <input style={{backgroundColor:'blue', color:'white', borderRadius:'20px'}} type="submit" value="Edit"/>
+                        </form></div>
+                        <button style = {{backgroundColor:'green', color: 'white', borderRadius: '20px'}}><a style ={{color:'white'}} href = '/pokemon'>Back to list</a></button>
                       </div>
                     </body>
                      )}else if(pokemon.name == 'squirtle' || pokemon.name =='wartortle' || pokemon.name =='blastoise'){
@@ -43,7 +54,14 @@ const React = require('react')
                         <h2 style = {{color: 'blue'}}>{pokename}</h2>
                         <img src = {`${pokemon.img}.jpg`}></img>
                         <br></br>
-                        <a style = {{color: 'darkblue'}} href = '/pokemon'>Back to list</a>
+                        
+                        <div style={{display:'inline-flex'}}><form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+                        <input style={{backgroundColor:'red', color:'white',borderRadius:'20px'}} type="submit" value="Delete"/>
+                        </form>
+                        <form action={`/pokemon/${pokemon._id}/edit?_method=EDIT`} method="PUT">
+                        <input style={{backgroundColor:'blue', color:'white', borderRadius:'20px'}} type="submit" value="Edit"/>
+                        </form></div>
+                        <button style = {{backgroundColor:'green', color: 'white', borderRadius: '20px'}}><a style ={{color:'white'}} href = '/pokemon'>Back to list</a></button>
                       </div>
                     </body>)
                      }else{
@@ -53,8 +71,15 @@ const React = require('react')
                             <h1><img style = {{height:'185px'}}src = 'https://i0.wp.com/twobeardgaming.com/wp-content/uploads/2020/05/pokemon-gotta.png?fit=1200400&ssl=1'></img></h1>
                             <h2 style = {{color: 'blue'}}>{pokename}</h2>
                             <img src = {`${pokemon.img}`}></img>
-                            <br></br>
-                            <a style = {{color: 'red'}} href = '/pokemon'>Back to list</a>
+                            <br></br> 
+                            <div style={{display:'inline-flex'}}><form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+                                        <input style={{backgroundColor:'red', color:'white',borderRadius:'20px'}} type="submit" value="Delete"/>
+                                        </form>
+                                        <form action={`/pokemon/${pokemon._id}/edit?_method=EDIT`} method="PUT">
+                                        <input style={{backgroundColor:'blue', color:'white', borderRadius:'20px'}} type="submit" value="Edit"/>
+                                        </form></div>
+
+                            <button style = {{backgroundColor:'green', color: 'white', borderRadius: '20px'}}><a style ={{color:'white'}} href = '/pokemon'>Back to list</a></button>
                           </div>
                         </body>)
                      }
