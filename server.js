@@ -25,7 +25,9 @@ app.get('/pokemon/seed', (req, res)=>{
         res.redirect('/pokemon')
     })
 })
-
+app.get('/', (req,res)=>{
+    res.redirect('/pokemon')
+})
 app.get('/pokemon', (req, res)=>{
     Pokemon.find({}, (err, allPokemon)=>{
         res.render('Index', {pokemon: allPokemon})
