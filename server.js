@@ -2,10 +2,12 @@ require('dotenv').config()
 const express = require('express')
 const Pokemon = require('./models/pokemon')
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 const app = express()
 const PORT = process.env.PORT || 3000
 
 app.use(express.urlencoded({extended:true}))
+app.use(methodOverride('_method'))
 
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
@@ -44,6 +46,29 @@ app.post('/pokemon', (req,res)=>{
        res.redirect('/pokemon')//send user back to index page
 })
 })
+
+app.delete('/pokemon/:id', (req,res)=>{
+    Pokemon.findByIdAndRemove(req.params.id, (err,data)=>{
+        res.redirect('/pokemon')
+    })
+})
+
+app.put('/pokemon/:id', (req, res)=>{
+    Pokemon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+        res.redirect('/pokemon')
+    })
+})
+
+app.get('/pokemon/:id/edit', (req, res)=>{
+    Pokemon.findById(req.params.id, (err, foundPokemon)=>{
+        if(!err){
+            res.render('Edit', {pokemon: foundPokemon})
+        } else {
+            res.send({ msg: err.message })
+        }
+    })
+})
+
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', ()=> {
