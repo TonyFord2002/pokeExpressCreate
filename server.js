@@ -25,42 +25,45 @@ app.get('/pokemon/seed', (req, res)=>{
         res.redirect('/pokemon')
     })
 })
+//Redirect to Index page
 app.get('/', (req,res)=>{
     res.redirect('/pokemon')
 })
+//Index page
 app.get('/pokemon', (req, res)=>{
     Pokemon.find({}, (err, allPokemon)=>{
         res.render('Index', {pokemon: allPokemon})
     })
 })
-
+//New page
 app.get('/pokemon/new', (req, res) => {
     res.render('New')
 })
+//Show page
 app.get('/pokemon/:id', (req, res)=>{
     Pokemon.findById(req.params.id, (err, foundPokemon)=>{
         res.render('Show', {pokemon:foundPokemon})
     })
 })
-
+//Create New Pokemon
 app.post('/pokemon', (req,res)=>{
     Pokemon.create(req.body, (err, createdPokemon)=>{
        res.redirect('/pokemon')//send user back to index page
 })
 })
-
+//Delete Pokemon
 app.delete('/pokemon/:id', (req,res)=>{
     Pokemon.findByIdAndRemove(req.params.id, (err,data)=>{
         res.redirect('/pokemon')
     })
 })
-
+//Update a Pokemon
 app.put('/pokemon/:id', (req, res)=>{
     Pokemon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/pokemon')
     })
 })
-
+//Edit Page
 app.get('/pokemon/:id/edit', (req, res)=>{
     Pokemon.findById(req.params.id, (err, foundPokemon)=>{
         if(!err){
@@ -71,12 +74,12 @@ app.get('/pokemon/:id/edit', (req, res)=>{
     })
 })
 
-
+//Connect to mongoose
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', ()=> {
     console.log('connected to mongo')
 })
-
+//listening on port 3000
 app.listen(PORT, ()=>{
     console.log('Listening on port: ', PORT)
 })
